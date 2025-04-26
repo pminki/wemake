@@ -30,7 +30,7 @@ export function ProductCard({
 		<Link to={`/products/${id}`}>
 			<Card className="w-full flex flex-row items-center justify-between bg-transparent hover:bg-card/50">
 				<CardHeader className="w-80">
-					<CardTitle className="text-2x1 font-semibold leading-none tracking-tight">
+					<CardTitle className="text-2xl font-semibold leading-none tracking-tight">
 						{name}
 					</CardTitle>                
 					<CardDescription className="text-muted-foreground">
