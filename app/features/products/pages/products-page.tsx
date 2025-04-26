@@ -1,15 +1,24 @@
-import { redirect } from "react-router";
+import type { MetaFunction } from "react-router";
+import type { Route } from "./+types/products-page";
 
-/*
-  loader() 함수의 기능
-    1. UI 컴포넌트를 위해 데이터를 불러올 수 있음.
-    2. redirect()를 사용해 다른 페이지 이동할 수 있음.
-    3. Response.json()를 사용하여 API 서비스로 사용할 수 있음.
-*/
-export function loader() {
-  // redirect
-  // return redirect("/products/leaderboards");
+export function meta(): MetaFunction {
+  return [
+    { title: "Products | ProductHunt Clone" },
+    { name: "description", content: "Browse all products" },
+  ];
+}
 
-  // api - json return
-  // return Response.json({ hello: "world" });
+export function loader({ request }: Route.LoaderArgs) {
+  return {
+    products: [], // Add products fetch logic
+  };
+}
+
+export default function ProductsPage( { loaderData }: Route.ComponentProps) {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6">Products</h1>
+      {/* Add products grid */}
+    </div>
+  );
 }
