@@ -84,4 +84,11 @@ This template comes with [Tailwind CSS](https://tailwindcss.com/) already config
 
 ---
 
+## NomadCoders
+
+- 노마드코더 (https://nomadcoders.co/)
+- 노마드코더 Youtube (https://www.youtube.com/@nomadcoders)
+
+---
+
 Built with ❤️ using React Router.
