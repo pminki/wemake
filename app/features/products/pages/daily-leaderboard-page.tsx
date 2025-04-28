@@ -5,6 +5,7 @@ import { z } from "zod";
 import { Hero } from "~/common/components/hero";
 import { Button } from "~/common/components/ui/button";
 import { ProductCard } from "../components/product-card";
+import ProductPagination from "~/common/components/product-pagination";
 
 const paramsSchema = z.object({
   year: z.coerce.number(),
@@ -109,6 +110,7 @@ export default function DailyLeaderboardPage({
           />
         ))}
       </div>
+      <ProductPagination totalPages={10} />
     </div>
   );
 }
