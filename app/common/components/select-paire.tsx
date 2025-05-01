@@ -32,7 +32,7 @@ export default function SelectPair({
         open={open}
         onOpenChange={setOpen}
         name={name}
-        required={required}
+        required={required}        
       >
         <SelectTrigger>
           <SelectValue placeholder={placeholder} />
