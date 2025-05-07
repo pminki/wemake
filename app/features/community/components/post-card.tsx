@@ -34,12 +34,12 @@ export function PostCard({
         "bg-transparent hover:bg-card/50 transition-colors",
         expanded ? "flex flex-row items-center justify-between" : ""
       )}>
-        <CardHeader className="flex flex-row items-center gap-2">
+        <CardHeader className="flex flex-row items-center gap-2 w-full">
           <Avatar className="size-14">
             <AvatarFallback>{author[0]}</AvatarFallback>
             {authorAvatarUrl && <AvatarImage src={authorAvatarUrl} />}
           </Avatar>
-          <div className="space-y-2">
+          <div className="space-y-2 ">
             <CardTitle>{title}</CardTitle>
             <div className="flex gap-2 text-sm leading-tight text-muted-foreground">
               <span>

@@ -1,28 +1,84 @@
-import { Form } from "react-router";
+import { Form, Link } from "react-router";
 import { Button } from "~/common/components/ui/button";
+import type { Route } from "./+types/post-page";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "~/common/components/ui/breadcrumb";
+import { DotIcon } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "~/common/components/ui/avatar";
+import { Textarea } from "~/common/components/ui/textarea";
 
-export const meta = () => {
+export const meta: Route.MetaFunction = ({ params }) => {
   return [
-    { title: "Post | wemake" },
+    { title: `${params.postId} | wemake` }
   ];
 }
 
 export default function PostPage() {
   return (
-    <div className="container py-8">
-      <div className="max-w-3xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-3xl font-semibold mb-4">Post Title</h1>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span>Author Name</span>
-            <span>•</span>
-            <span>Posted 2 days ago</span>
+    <div className="cgrid grid-cols-6 gap-40 items-start">
+      <div className="col-span-4 space-y-10">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/community">Community</Link>
+              </BreadcrumbLink>              
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to={`/community?topic=productivity`}>Productivity</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to={`/community/postId`}>
+                  What is the best productivity tool?                
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>          
+        </Breadcrumb>
+        <div className="flex w-full item-start gap-10">
+
+          <div className="space-y-20">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold">
+                What is the best productivity tool?
+              </h2>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span>@nico</span>
+                <DotIcon className="size-5" />
+                <span>12 hours ago</span>
+                <DotIcon className="size-5" />
+                <span>10 replies</span>
+              </div>
+              <p className="text-muted-foreground w-3/4">
+                Hello, I'm looking for a productivity tool that can help me
+                manage my tasks and projects. Any recommendations? I have tried
+                Notion, but it's not what I'm looking for. I dream of a tool
+                that can help me manage my tasks and projects. Any
+                recommendations?
+              </p>
+            </div>
+            <Form className="flex items-start gap-5 w-3/4">
+              <Avatar className="size-14">
+                <AvatarFallback>N</AvatarFallback>
+                <AvatarImage src="https://github.com/serranoarevalo.png" />
+              </Avatar>
+              <div className="flex flex-col gap-5 items-end w-full">
+                <Textarea
+                  placeholder="Write a reply"
+                  className="w-full resize-none"
+                  rows={5}
+                />
+                <Button>Reply</Button>
+              </div>
+            </Form>
           </div>
         </div>
-        <div className="prose max-w-none">
-          {/* Post content will be added here */}
-        </div>
       </div>
+      <aside className="col-span-2"></aside>
     </div>
   );
 } 
