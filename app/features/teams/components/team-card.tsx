@@ -22,7 +22,7 @@ export function TeamCard({
   projectDescription,
 }: TeamCardProps) {
   return (
-    <Link to={`'teams/${id}`}>
+    <Link to={`${id}`}>
       <Card className="bg-transparent hover:bg-card/50 transition-colors">
         <CardHeader className="flex flex-row items-center">
           <CardTitle className="text-base leading-loose">
