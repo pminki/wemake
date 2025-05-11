@@ -1,16 +1,25 @@
-import { Hero } from "~/common/components/hero";
 import type { Route } from "./+types/profile-page";
 
-export const meta: Route.MetaFunction = ({ params }) => [
-  { title: `${params.username} | wemake` }
-];
+export const meta: Route.MetaFunction = () => {
+  return [{ title: "Profile | wemake" }];
+};
 
 export default function ProfilePage() {
   return (
-    <div className="space-y-20">
-      <Hero title="User Profile" subtitle="View user's profile and activities." />
-      <div className="max-w-4xl mx-auto space-y-10">
-        {/* Profile content will be rendered here */}
+    <div className="max-w-screen-md flex flex-col space-y-10">
+      <div className="space-y-2">
+        <h4 className="text-lg font-bold">Headline</h4>
+        <p className="text-muted-foreground">
+          I'm a product designer based on the UK, I like doing product design,
+          design systems and design tokens.
+        </p>
+      </div>
+      <div className="space-y-2">
+        <h4 className="text-lg font-bold">About</h4>
+        <p className="text-muted-foreground">
+          I'm a product designer based on the UK, I like doing product design,
+          design systems and design tokens.
+        </p>
       </div>
     </div>
   );
