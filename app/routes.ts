@@ -78,10 +78,12 @@ export default [
 		route("/create", "features/teams/pages/submit-team-page.tsx"),
 	]),
 	...prefix("/my", [
-		...prefix("/dashboard", [
-			index("features/users/pages/dashboard-page.tsx"),
-			route("/ideas", "features/users/pages/dashboard-ideas-page.tsx"),
-			route("/products/:productsId", "features/users/pages/dashboard-products-page.tsx"),
+		layout("features/users/layouts/dashboard-layout.tsx", [
+			...prefix("/dashboard", [
+				index("features/users/pages/dashboard-page.tsx"),
+				route("/ideas", "features/users/pages/dashboard-ideas-page.tsx"),
+				route("/products/:productsId", "features/users/pages/dashboard-products-page.tsx"),
+			]),
 		]),
 		layout("features/users/layouts/messages-layout.tsx", [
       ...prefix("/messages", [
