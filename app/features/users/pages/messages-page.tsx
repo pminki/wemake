@@ -1,4 +1,4 @@
-import { Hero } from "~/common/components/hero";
+import { MessageCircleIcon } from "lucide-react";
 import type { Route } from "./+types/messages-page";
 
 export const meta: Route.MetaFunction = () => [
@@ -7,11 +7,11 @@ export const meta: Route.MetaFunction = () => [
 
 export default function MessagesPage() {
   return (
-    <div className="space-y-20">
-      <Hero title="Messages" subtitle="Your conversations." />
-      <div className="grid grid-cols-1 gap-4">
-        {/* Messages list will be rendered here */}
-      </div>
+    <div className="h-full flex flex-col items-center justify-center gap-4">
+      <MessageCircleIcon className="size-12 text-muted-foreground" />
+      <h1 className="text-xl text-muted-foreground font-semibold">
+        Click on a message in the sidebar to view it.
+      </h1>
     </div>
   );
 } 

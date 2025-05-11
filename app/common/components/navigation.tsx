@@ -201,7 +201,7 @@ export default function Navigation({
                   </Link>
                 </Button>
                 <Button size="icon" variant="ghost" asChild className="relative">
-                  <Link to="my/message">
+                  <Link to="my/messages">
                     <MessageCircleIcon className="size-4" />
                     {hasmessages && (
                       <div className="absolute top-1.5 right-1.5 size-2 bg-red-500 rounded-full" />
