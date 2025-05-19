@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1747059889607,
+      "tag": "0000_short_wendell_rand",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1747185757142,
+      "tag": "0001_reflective_fallen_one",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1747227995967,
+      "tag": "0002_vengeful_madame_hydra",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1747229841807,
+      "tag": "0003_previous_blackheart",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1747230974239,
+      "tag": "0004_clammy_exiles",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1747403958771,
+      "tag": "0005_acoustic_green_goblin",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1747659817415,
+      "tag": "0006_melodic_mariko_yashida",
+      "breakpoints": true
+    }
+  ]
+}
