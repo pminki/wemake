@@ -7,6 +7,8 @@ import { DropdownMenuCheckboxItem } from "@radix-ui/react-dropdown-menu";
 import { ChevronDownIcon } from "lucide-react";
 import { PostCard } from "../components/post-card";
 import { Input } from "~/common/components/ui/input";
+import { getPosts, getTopics } from "../queries";
+import type { Route } from "./+types/community-page";
 
 export const meta: MetaFunction = () => {
   return [
@@ -14,7 +16,13 @@ export const meta: MetaFunction = () => {
   ];
 }
 
-export default function CommunityPage() {
+export const loader = async () => {
+  const topics = await getTopics();
+  const posts = await getPosts();
+  
+  return { topics, posts };
+};
+export default function CommunityPage({ loaderData }: Route.ComponentProps) {
   const [searchParams, setSearchParams] = useSearchParams();
   const sorting = searchParams.get("sorting") ?? SORT_OPTIONS[0];
   const period = searchParams.get("period") ?? PERIOD_OPTIONS[0];
@@ -89,17 +97,16 @@ export default function CommunityPage() {
             </Button>
           </div>
           <div className="space-y-5">
-            {Array.from({ length: 11 }).map((_, index) => (
+            {loaderData.posts.map((post) => (
               <PostCard
-                key={`postId-${index}`}
-                id={`postId-${index}`}
-                title="What is the best productivity tool?"
-                author="John Doe"
-                authorAvatarUrl="https://github.com/apple.png"
-                category="Productivity"
-                postedAt="12 hours ago"
-                expanded={true}
-                votesCount={0}                
+                key={post.post_id}
+                id={post.post_id}
+                title={post.title}
+                author={post.author.name}
+                authorAvatarUrl={post.author.avatar}
+                category={post.topic.name}
+                postedAt={post.created_at}
+                votesCount={post.upvotes[0].count}               
               />
             ))}
           </div>
@@ -109,15 +116,14 @@ export default function CommunityPage() {
             Topics
           </span>
           <div className="flex flex-col gap-2 items-start">
-            {[
-              "AI Tools",
-              "Design Tools",
-              "Dev Tools",
-              "Note Taking Apps",
-              "Productivity Tools",
-            ].map((category) => (
-              <Button asChild variant="link" key={category} className="pl-0">
-                <Link to={`/community?topic=${category}`}>{category}</Link>
+            {loaderData.topics.map((topic) => (
+              <Button
+                asChild
+                variant={"link"}
+                key={topic.slug}
+                className="pl-0"
+              >
+                <Link to={`/community?topic=${topic.slug}`}>{topic.name}</Link>
               </Button>
             ))}
           </div>

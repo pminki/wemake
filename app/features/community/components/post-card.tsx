@@ -1,17 +1,18 @@
 import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { ChevronUpIcon, DotIcon } from "lucide-react";
+import type { WeekNumberClickEventHandler } from "react-day-picker";
 import { Link } from "react-router";
 import { Avatar } from "~/common/components/ui/avatar";
 import { Button } from "~/common/components/ui/button";
 import { Card, CardFooter, CardHeader, CardTitle } from "~/common/components/ui/card";
 import { cn } from "~/lib/utils";
-
+import { DateTime } from "luxon";
 
 interface PostCardProps {
-  id: string;
+  id: number;
   title: string;
   author: string;
-  authorAvatarUrl: string;
+  authorAvatarUrl: string | null;
   category: string;
   postedAt: string;
   expanded?: boolean;
@@ -46,7 +47,7 @@ export function PostCard({
                 {author} on {category}
               </span>
               <DotIcon className="w-4 h-4" />
-              <span>{postedAt}</span>
+              <span>{DateTime.fromISO(postedAt).toRelative()}</span>
             </div>
           </div>
         </CardHeader>
