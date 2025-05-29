@@ -55,7 +55,7 @@ export default function HomePage() {
 				{Array.from({ length: 11}).map((_, index) => (
 					<PostCard 
 						key={`postId-${index}`}
-						id={`postId-${index}`}
+						id={index}
 						title="What is the best productivity tool?"
 						author="Min"
 						authorAvatarUrl="https://github.com/apple.png"
@@ -125,7 +125,9 @@ export default function HomePage() {
 						Join a team looking for a new member.
 					</p>
 					<Button variant="link" asChild className="text-lg p-0">
-						<Link to="/teams">Explore all teams &rarr;</Link>
+						<Link prefetch="viewport" to="/teams">
+							Explore all teams &rarr;
+						</Link>
 					</Button>
 				</div>
 				{Array.from({ length: 7 }).map((_, index) => (
